@@ -58,8 +58,7 @@ bool PassouAlgoritmos(infoMaterias &aluno, float Pj1)
 
 		cout << "É necessário que você tire pelo menos: " << fixed << setprecision(2) << notaMinima << " na NP2" << endl;
 
-		
-		FALTANDO CALCULO
+		//falta exibir quanto deve tirar em cada matéria;
 
 	}
 
