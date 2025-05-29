@@ -7,37 +7,35 @@ using namespace std;
 
 struct infoMaterias
 {
-	int fezNP2 = false;
+	int fezNP2;
 	bool passou = false;
-	int disciplina;
-
-	float P1 = 0; // C02, M01
-	float P2 = 0; // C02, M01
-	float P3 = 0; // M01
-	float P4 = 0; // M01
-
-	float EX1 = 0; // C02
-	float EX2 = 0; // C02
-
 	float NP1 = 0; // nota parcial 1
 	float NP2 = 0; // nota parcial 2
 	float NP3 = 0; // nota parcial 3
 	float NPA = 0; // nota parcial sem NP3
 
-	float NF = 0; // nota final
 };
 
 
-float PassouAlgoritmos(infoMaterias &aluno)
+void PassouAlgoritmos(infoMaterias &aluno)
 {
-	
+	if (aluno.fezNP2 == 2)
+	{
+		aluno.NP2 = 120 - aluno.NP1; //quanto deve tirar na NP2 para que pegue a média
+	}
+	else if(aluno.fezNP2 == 1)
+	{
+		//se ja fez a NP2, atribuir a NP3 quanto ele deve tirar para que pegue média e passe
+		aluno.NPA = (aluno.NP1 + aluno.NP2) / 2;
+		aluno.NP3 = 100 - aluno.NPA;
+	}
 }
 
 int main()
 {
 
 	setlocale(LC_ALL, "PORTUGUESE");
-
+	int disciplina;
 	infoMaterias aluno;
 
 	cout << "Programa auxiliar à estudantes de Engenharia - Inatel" << endl
@@ -53,9 +51,9 @@ int main()
 		 << endl;
 
 	cout << "Qual sua opção? " << endl;
-	cin >> aluno.disciplina; // selecionar materia
+	cin >> disciplina; // selecionar materia
 
-	if (aluno.disciplina == 1)
+	if (disciplina == 1)
 	{
 		cout << "" << endl;
 		cout << "Algoritimos e Estrutura de Dados |" << endl
@@ -64,17 +62,15 @@ int main()
 		cout << "Você já concluiu a NP2? Digite 1 para sim e 2 para não" << endl;
 		cin >> aluno.fezNP2;
 
-		cout << "" << endl;
 		
 		cout << "Insira sua nota da NP1: ";
 		cin >> aluno.NP1;
 
-		if(aluno.fezNP2 == 2){
-			cout << "Falta"
-		}
+		PassouAlgoritmos(aluno);
+		
 
 	}
-	else if (aluno.disciplina == 2)
+	else if (disciplina == 2)
 	{
 		cout << "" << endl;
 		cout << "Álgebra e Geometria Analítica" << endl
@@ -93,7 +89,7 @@ int main()
 		cout << "Ponto extra: ";
 		cin >> pontoExtraAlgebra;
 	}
-	else if (aluno.disciplina == 3)
+	else if (disciplina == 3)
 	{
 		cout << "" << endl;
 		cout << "Circuitos Elétricos em Corrente Contínua" << endl
@@ -109,7 +105,7 @@ int main()
 		cout << "Nota da segunda prova: ";
 		cin >> p2Circuitos;
 	}
-	else if (aluno.disciplina == 4)
+	else if (disciplina == 4)
 	{
 		cout << "" << endl;
 		cout << "Matemática Aplicada à Engenharia" << endl
@@ -132,7 +128,7 @@ int main()
 		cout << "Nota da quarta prova: ";
 		cin >> p4Matematica;
 	}
-	else if (aluno.disciplina == 5)
+	else if (disciplina == 5)
 	{
 		cout << "" << endl;
 		cout << "Química e Ciência dos Materiais" << endl
@@ -171,7 +167,7 @@ int main()
 	{
 		cout << "" << endl;
 		cout << "Opção inválida. Digite novamente." << endl;
-		cin >> aluno.disciplina;
+		cin >> disciplina;
 	}
 
 	return 0;
