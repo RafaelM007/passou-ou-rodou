@@ -17,7 +17,7 @@ struct infoMaterias
 };
 
 
-void PassouAlgoritmos(infoMaterias &aluno)
+void PassouMateria(infoMaterias &aluno)
 {
 	if (aluno.fezNP2 == 2)
 	{
@@ -30,6 +30,7 @@ void PassouAlgoritmos(infoMaterias &aluno)
 		aluno.NP3 = 100 - aluno.NPA;
 	}
 }
+
 
 int main()
 {
@@ -66,44 +67,22 @@ int main()
 		cout << "Insira sua nota da NP1: ";
 		cin >> aluno.NP1;
 
-		PassouAlgoritmos(aluno);
+		PassouMateria(aluno);
 		
 
 	}
 	else if (disciplina == 2)
 	{
 		cout << "" << endl;
-		cout << "Álgebra e Geometria Analítica" << endl
-			 << endl;
+		cout << "Álgebra e Geometria Analítica" << endl << endl;
 
-		int p1Algebra;
-		int p2Algebra;
-		int pontoExtraAlgebra;
-
-		cout << "Nota da primeira prova: ";
-		cin >> p1Algebra;
-
-		cout << "Nota da segunda prova: ";
-		cin >> p2Algebra;
-
-		cout << "Ponto extra: ";
-		cin >> pontoExtraAlgebra;
 	}
 	else if (disciplina == 3)
 	{
 		cout << "" << endl;
-		cout << "Circuitos Elétricos em Corrente Contínua" << endl
-			 << endl;
+		cout << "Circuitos Elétricos em Corrente Contínua" << endl << endl;
 
-		int p1Circuitos;
-		int p2Circuitos;
-		int pontoExtraCircuitos;
-
-		cout << "Nota da primeira prova: ";
-		cin >> p1Circuitos;
-
-		cout << "Nota da segunda prova: ";
-		cin >> p2Circuitos;
+	
 	}
 	else if (disciplina == 4)
 	{
@@ -111,22 +90,7 @@ int main()
 		cout << "Matemática Aplicada à Engenharia" << endl
 			 << endl;
 
-		int p1Matematica;
-		int p2Matematica;
-		int p3Matematica;
-		int p4Matematica;
-
-		cout << "Nota da primeira prova: ";
-		cin >> p1Matematica;
-
-		cout << "Nota da seguda prova: ";
-		cin >> p2Matematica;
-
-		cout << "Nota da terceira prova: ";
-		cin >> p3Matematica;
-
-		cout << "Nota da quarta prova: ";
-		cin >> p4Matematica;
+		
 	}
 	else if (disciplina == 5)
 	{
@@ -134,34 +98,6 @@ int main()
 		cout << "Química e Ciência dos Materiais" << endl
 			 << endl;
 
-		int p1Quimica;
-		int p2Quimica;
-		int at1Quimica;
-		int at2Quimica;
-		int at3Quimica;
-		int at4Quimica;
-		int at5Quimica;
-
-		cout << "Nota da primeira prova: ";
-		cin >> p1Quimica;
-
-		cout << "Nota da seguda prova: ";
-		cin >> p2Quimica;
-
-		cout << "Nota da atividade 1: ";
-		cin >> at1Quimica;
-
-		cout << "Nota da atividade 2: ";
-		cin >> at2Quimica;
-
-		cout << "Nota da atividade 3: ";
-		cin >> at3Quimica;
-
-		cout << "Nota da atividade 4: ";
-		cin >> at4Quimica;
-
-		cout << "Nota da atividade 5: ";
-		cin >> at5Quimica;
 	}
 	else
 	{
