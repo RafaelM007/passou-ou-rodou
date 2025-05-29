@@ -7,7 +7,7 @@ using namespace std;
 
 struct infoMaterias
 {
-	int qtdAtv = 0;
+	int fezNP2 = false;
 	bool passou = false;
 	int disciplina;
 
@@ -27,86 +27,10 @@ struct infoMaterias
 	float NF = 0; // nota final
 };
 
-void faltamAtividades(float notaMinima)
+
+float PassouAlgoritmos(infoMaterias &aluno)
 {
-	cout << "Ainda faltam atividades. Para passar com 60, você precisa de " << notaMinima << " pontos entre NP1 e NP2" << endl;
-}
-
-bool PassouAlgoritmos(infoMaterias &aluno, float Pj1)
-{
-	//calcula a NP1 se ele ja fez as duas atividades
-	if (aluno.qtdAtv >= 2)
-	{
-		aluno.NP1 = 0.8 * aluno.P1 + 0.2 * aluno.EX1;
-	}
-	//calcula a NP2 se ele já fez todas as atividades
-	if(aluno.qtdAtv == 5)
-	{
-		aluno.NP2 = 0.8 * aluno.P2 + 0.2 * pow((aluno.EX2 * Pj1), 0.2);
-
-		//nota parcial do aluno
-		aluno.NPA = (aluno.NP1 + aluno.NP2) / 2; 
-	}
-
-	//calcula a nota minima a ser tirada na NP2
-	float notaMinima = 120 - aluno.NP1;
-
-	// Quando só tem a nota na NP1
-	if (aluno.qtdAtv == 2)
-	{
-		// Mostra quanto falta na NP2 para alcançar a media de 60
-
-		cout << "É necessário que você tire pelo menos: " << fixed << setprecision(2) << notaMinima << " na NP2" << endl;
-
-		//falta exibir quanto deve tirar em cada matéria;
-
-	}
-
-	// quando fez até a P2
-	else if (aluno.qtdAtv == 3)
-	{
-		float parteFixa = 0.8 * aluno.P2; // parte já disponivel da NP2
-		if (parteFixa <= notaMinima)
-		{
-			float restante = notaMinima - parteFixa; // só se ainda precisar de nota fora a P2
-		}
-	}
-
-	// quando fez até o Ex2
-	else if (aluno.qtdAtv == 4)
-	{
-		float parteFixa = 0.8 * aluno.P2;
-		float notaRestante =
-	}
-
-	if (aluno.qtdAtv < 5) // se nem todas as atividades já foram feitas
-	{
-		// soma a nota que ele já tem
-		aluno.NPA = aluno.NP1 + aluno.NP2;
-		// se a nota ainda não é suficiente para ter passado
-		if (aluno.NPA < 60)
-		{
-			float notaMinima = 120 - aluno.NPA; // quanto falta para média 60;
-			faltamAtividades(notaMinima);
-		}
-	}
-	{
-
-		
-	}
-
-	if (aluno.NPA >= 60)
-	{
-		aluno.passou = true;
-		aluno.NF = aluno.NPA;
-	}
-	else
-	{
-		aluno.passou = false;
-		aluno.NP3 = 100 - aluno.NPA; // calcula quantos pontos são necessarios tirar na NP3
-	}
-
-	return aluno.passou;
+	
 }
 
 int main()
@@ -133,54 +57,22 @@ int main()
 
 	if (aluno.disciplina == 1)
 	{
-		float Pj1 = 0;
 		cout << "" << endl;
 		cout << "Algoritimos e Estrutura de Dados |" << endl
 			 << endl;
 
-		cout << "Qual o número de atividades já feitas?" << endl;
-		cin >> aluno.qtdAtv;
+		cout << "Você já concluiu a NP2? Digite 1 para sim e 2 para não" << endl;
+		cin >> aluno.fezNP2;
 
 		cout << "" << endl;
-		if (aluno.qtdAtv >= 1)
-		{
-			cout << "Nota da primeira prova: ";
-			cin >> aluno.P1;
+		
+		cout << "Insira sua nota da NP1: ";
+		cin >> aluno.NP1;
+
+		if(aluno.fezNP2 == 2){
+			cout << "Falta"
 		}
 
-		else if (aluno.qtdAtv >= 2)
-		{
-			cout << "Nota da primeira lista de exercícios do Moodle: ";
-			cin >> aluno.EX1;
-		}
-
-		else if (aluno.qtdAtv >= 3)
-		{
-			cout << "Nota da segunda prova: ";
-			cin >> aluno.P2;
-		}
-
-		else if (aluno.qtdAtv >= 4)
-		{
-			cout << "Nota da segunda lista de exercícios do Moodle: ";
-			cin >> aluno.EX2;
-		}
-		else if (aluno.qtdAtv == 5)
-		{
-			cout << "Nota do projeto: ";
-			cin >> Pj1;
-		}
-
-		aluno.passou = PassouAlgoritmos(aluno, Pj1);
-
-		if (aluno.passou == true)
-		{
-			cout << "Passou com " << aluno.NF << " pontos";
-		}
-		else // quando o aluno nao passou com mesmo com todas notas (fora NP3)
-		{
-			cout << "Você deve tirar " << aluno.NP3 << " pontos na NP3 para a aprovação em algoritmos";
-		}
 	}
 	else if (aluno.disciplina == 2)
 	{
