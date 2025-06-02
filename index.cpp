@@ -110,6 +110,40 @@ bool PassouAlgoritmos(infoMaterias &aluno, float Pj1)
 	return aluno.passou;
 }
 
+bool passouAlgebra(infoMaterias &aluno){
+			
+		float notaMinima;
+ 		float media;
+
+   		 if (aluno.qtdAtv == 1) {
+        	if (aluno.P1 < 60) {
+   				notaMinima = 120 - aluno.P1;  
+            	cout << "É necessário que você tire pelo menos: " 
+                 	 << fixed << setprecision(2) << notaMinima 
+                  	  << " na NP2 para passar." << endl;
+        } else {
+            cout << "Com a nota da NP1, você já está acima da média. Mas ainda precisa fazer a NP2." << endl;
+        }
+        return false; // ainda não passou, falta NP2
+    } 
+    
+    else if (aluno.qtdAtv == 2) {
+        media = (aluno.P1 + aluno.P2) / 2.0;
+
+        if (media >= 60.0) {
+            cout << "Parabéns! Você foi aprovado em Álgebra." << endl;
+            return true;
+        } else {
+            cout << "Infelizmente, você foi reprovado em Álgebra." << endl;
+            return false;
+        }
+    }
+
+    cout << "Quantidade de atividades inválida." << endl;
+    return false;
+}
+
+{
 int main()
 {
 
@@ -189,18 +223,33 @@ int main()
 		cout << "Álgebra e Geometria Analítica" << endl
 			 << endl;
 
-		int p1Algebra;
-		int p2Algebra;
-		int pontoExtraAlgebra;
+		cout << "Qual o número de atividades já feitas?" << endl;
+		cin >> aluno.qtdAtv;
 
-		cout << "Nota da primeira prova: ";
-		cin >> p1Algebra;
+		cout << "" << endl;
+		if (aluno.qtdAtv >= 1)
+		{
+			cout << "Nota da primeira prova: ";
+			cin >> aluno.P1;
+		}
 
-		cout << "Nota da segunda prova: ";
-		cin >> p2Algebra;
+		else if (aluno.qtdAtv >= 2)
+		{
+			cout << "Nota da segunda prova";
+			cin >> aluno.P2;
+		}
+	}
 
-		cout << "Ponto extra: ";
-		cin >> pontoExtraAlgebra;
+	aluno.passou = PassouAlgebra(aluno);
+
+		if (aluno.passou == true)
+		{
+			cout << "Passou com " << aluno.NF << " pontos";
+		}
+		else // quando o aluno nao passou com mesmo com todas notas (fora NP3)
+		{
+			cout << "Você deve tirar " << aluno.NP3 << " pontos na NP3 para a aprovação em álgebra";
+		}
 	}
 	else if (aluno.disciplina == 3)
 	{
