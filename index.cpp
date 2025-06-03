@@ -148,6 +148,46 @@ int main()
 		}
 
 	}
+	int Voltar;
+	
+	cout << endl;
+	cout << " --- Deseja voltar ao menu? ---" << endl;
+	cout << " ||         (1)Sim            ||"<< endl;
+	cout << " ||         (2)Não            ||"<< endl;
+	cout << " -------------------------------"<< endl<<endl;;
+	cout << "Informe a opção escolhida: ";
+
+	cin >> Voltar;
+
+	if (Voltar == 1){
+		cout << "" << endl;
+		cout << "============================================================" << endl;
+	    cout << "       Programa Auxiliar a Estudantes de Engenharia " << endl;
+	    cout << "                      - INATEL -                  " << endl;
+	    cout << "============================================================" << endl << endl;
+	   
+	    cout << "   ----------------- DISCIPLINAS:--------------------------" << endl;
+	    cout << "  ||     (1) Algoritmos e Estruturas de Dados            ||" << endl;
+	    cout << "  ||     (2) Álgebra e Geometria Analítica               ||"<< endl;
+	    cout << "  ||     (3) Circuitos Elétricos em Corrente Contínua    ||" << endl;
+	    cout << "  ||     (4) Matemática Aplicada à Engenharia            ||" << endl;
+	    cout << "  ||     (5) Química e Ciência dos Materiais             ||" << endl;
+		cout << "  ---------------------------------------------------------" << endl<<endl;
+
+	    cout << "Informe a disciplina que deseja calcular sua nota: ";
+		cin >> disciplina; 
+	}
+	else if (Voltar == 2){
+		cout << "" << endl;
+		cout << "   Um relatório foi gerado, entre em arquivos para acessar.   " << endl;
+		cout << "        Esperamos que tenha ajudado, bons estudos! " << endl;
+		cout << "----------------------------------------------------------";
+	}
+	else{
+		cout << "" << endl;
+		cout << "Opção escolhida inválida. Digite novamente:" << endl;
+		cin >> Voltar;
+	}
 	
 
 	return 0;
