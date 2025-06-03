@@ -101,6 +101,24 @@ float PassouAlgoritmos(infoMaterias &aluno)
 
 int main()
 
+setlocale(LC_ALL, "PORTUGUESE");
+
+	infoMaterias aluno;
+
+	cout << "Programa auxiliar à estudantes de Engenharia - Inatel" << endl
+		 << endl;
+
+	// Menu de seleção das materias
+	cout << "Disciplinas" << endl;
+	cout << "(1) Algoritmos e Estrutura de Dados | " << endl;
+	cout << "(2) Álgebra e Geometria Analítica " << endl;
+	cout << "(3) Circuitos Elétricos em Corrente Contínua" << endl;
+	cout << "(4) Matemática Aplicada à Engenharia" << endl;
+	cout << "(5) Química e Ciência dos Materiais" << endl
+		 << endl;
+
+	cout << "Qual sua opção? " << endl;
+	cin >> aluno.disciplina; // selecionar materia
 
 	if (aluno.disciplina == 1)
 	{
